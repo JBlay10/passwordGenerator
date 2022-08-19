@@ -14,7 +14,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
+} 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -31,6 +31,20 @@ function generatePassword() {
   var minCount = 8;
   var maxCount = 128;
 
+  // If else statement for when User inputs number of characters (This still needs some work).
+  if (passwLength >= minCount && passwLength <= maxCount) {
+    alert("Your password is " + passwLength + " characters long.");
+  } else{
+    alert("Your password is " + passwLength + " characters long, doesn't meet the requirements.");
+    var passwLength = prompt("Enter the number of characters you want for your new password. Must be min. 8 & max. 128 characters long.");
+    var numberss = confirm("Do you want numbers in your password?");
+    var lowCases = confirm("Do you want lowercases in your password?");
+    var uppCases = confirm("Do you want uppercases in your password?");
+    var specialChars = confirm("Do you want special characters in your password?");
+    //return;
+  }
+
+  // If user doesn't select any of the options
   if (numberss === false && lowCases === false && uppCases === false && specialChars === false){
     alert("Bruuuh...");
     var numberss = confirm("Do you want numbers in your password?");
@@ -58,6 +72,7 @@ function generatePassword() {
 
   //Displayed password
   var randomPasswGen = "";
+
   //var newPassword = [];
   for (let i = 0; i < passwLength ; i++) {
     randomPasswGen = randomPasswGen + functionArray[Math.floor(Math.random() * functionArray.length)];
@@ -66,5 +81,5 @@ function generatePassword() {
   }
 
   return randomPasswGen;
-  
+
 }
